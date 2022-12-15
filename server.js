@@ -49,15 +49,10 @@ app.get('/pokemon/new', (req, res)=>{
 app.get('/pokemon', (req,res)=>{
     res.send('pokemon sent')
 });
-
 app.post("/pokemon", (req, res)=> {
     Pokemon.create(req.body, (error, newPokemon)=> {
         res.redirect("/pokemon");
     });
-});
-
-app.get("/pokemon/new", (req, res)=>{
-    res.render("New");
 });
 
 //Show
@@ -72,7 +67,7 @@ app.get("/pokemon/:id", (req, res)=>{
 //Delete 
 app.delete('/pokemon/:id', (req, res)=>{
     Pokemon.findByIdAndRemove(req.params.id, (err, deletePokemon)=>{
-        res.redirecr('/pokemon')
+        res.redirect('/pokemon')
     })
 })   
 
